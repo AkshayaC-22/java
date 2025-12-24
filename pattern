@@ -1,0 +1,73 @@
+//rectangle
+
+import java.util.Scanner;
+class ll {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int n = sc.nextInt();
+        for(int j=0;j<n-(n/2);j++){
+        for(int i=0;i<n;i++){
+            System.out.print(" * ");
+        }
+        System.out.println();
+    }
+        
+    }}
+
+//square
+
+import java.util.Scanner;
+
+class ll {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int n = sc.nextInt();
+        for(int j=0;j<n;j++){
+        for(int i=0;i<n;i++){
+            System.out.print(" * ");
+        }
+        System.out.println();
+    }
+        
+    }}
+//Increasing triangle
+
+import java.util.Scanner;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int n = sc.nextInt();
+        for(int i=0 ;i<=n;i++){
+            for(int j=0;j<=i;j++){
+                System.out.print(" x ");
+            }
+            System.out.println();
+        }
+        
+        
+        
+    }
+}
+
+//dec triangle
+
+import java.util.Scanner;
+class dec {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int n = sc.nextInt();
+        for(int i=0 ;i<=n;i++){
+            for(int j=i;j<=n;j++){
+                System.out.print(" x ");
+            }
+            System.out.println();
+        }
+        
+        
+        
+    }
+}
