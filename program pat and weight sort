@@ -1,0 +1,112 @@
+/* 1.“Print the word with odd letters as …”
+And in the image, you see the word PROGRAM written in a cross (X) shape.
+*/
+
+public class OddLetterPattern {
+    public static void main(String[] args) {
+        String word = "PROGRAM";
+
+        String odd = "";
+        for (int i = 0; i < word.length(); i++) {
+            if ((i + 1) % 2 != 0) {
+                odd += word.charAt(i);
+            }
+        }
+
+        int n = odd.length();
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (i == j || i + j == n - 1)
+                    System.out.print(odd.charAt(i) + " ");
+                else
+                    System.out.print("  ");
+            }
+            System.out.println();
+        }
+    }
+}
+op:
+P     M
+  O R
+  O R
+P     M
+
+
+
+
+/*-----------------------------------------------------------------------------------------------
+2.Given a set of numbers
+
+<10, 36, 54, 89, 12>
+
+
+Each number is assigned a weight based on the following rules:
+
+Add 5 to the weight if the number is a perfect square.
+
+Add 4 to the weight if the number is divisible by both 4 and 6.
+
+Add 3 to the weight if the number is an even number.
+
+A number can satisfy more than one condition, so the weights are added.
+
+After calculating the weight for each number, sort the numbers in increasing order of their weight and print the result.*/
+
+
+public class yy {
+
+    public static void main(String[] args) {
+
+        int[] arr = {10, 36, 54, 89, 12};
+        int n = arr.length;
+
+        int[] weight = new int[n];
+
+        
+        for (int i = 0; i < n; i++) {
+            int num = arr[i];
+            int w = 0;
+
+            int r = (int) Math.sqrt(num);
+            if (r * r == num)
+                w += 5;
+
+            if (num % 4 == 0 && num % 6 == 0)
+                w += 4;
+
+            if (num % 2 == 0)
+                w += 3;
+
+            weight[i] = w;
+        }
+
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (weight[i] > weight[j]) {
+                
+                    int tempW = weight[i];
+                    weight[i] = weight[j];
+                    weight[j] = tempW;
+
+               
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+
+
+        for (int i = 0; i < n; i++) {
+            System.out.println(arr[i] + " -> weight " + weight[i]);
+        }
+    }
+}
+op:
+89 -> weight 0
+10 -> weight 3
+54 -> weight 3
+12 -> weight 7
+36 -> weight 12
+
