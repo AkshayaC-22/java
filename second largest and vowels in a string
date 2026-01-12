@@ -1,0 +1,40 @@
+//Find Second Largest Element
+
+class SecondLargest {
+    public static void main(String[] args) {
+        int[] arr = {10, 20, 5, 40, 30};
+
+        int max = Integer.MIN_VALUE;
+        int second = Integer.MIN_VALUE;
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > max) {
+                second = max;
+                max = arr[i];
+            } else if (arr[i] > second && arr[i] != max) {
+                second = arr[i];
+            }
+        }
+
+        System.out.println(second);
+    }
+}
+
+
+//Count Vowels in a String
+
+class CountVowels {
+    public static void main(String[] args) {
+        String str = "interview";
+        int count = 0;
+
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+
+            if (ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u')
+                count++;
+        }
+
+        System.out.println(count);
+    }
+}
