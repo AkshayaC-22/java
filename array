@@ -1,0 +1,137 @@
+1.min max in 
+
+
+import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter n:");
+        int n = sc.nextInt();
+        System.out.println("Enter array elements:");
+        int arr[] = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        int min = arr[0];
+        int max = arr[0];
+        // Find minimum
+        for (int i = 0; i < n; i++) {
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+        }
+
+        // Find maximum
+        for (int i = 0; i < n; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+        }
+
+        System.out.println("Answer:");
+        System.out.println("Minimum = " + min);
+        System.out.println("Maximum = " + max);
+    }
+}
+
+
+2.sorting in array
+
+import java.util.Arrays;
+
+int arr[] = {30, 10, 50, 20, 40};
+
+Arrays.sort(arr);
+
+System.out.println(Arrays.toString(arr));
+
+
+
+
+3.second largest
+
+import java.util.Arrays;
+
+class Main {
+    public static void main(String[] args) {
+
+        int[] arr = {10, 50, 30, 90, 40};
+
+        Arrays.sort(arr);
+
+        int secondLargest = arr[arr.length - 2];
+
+        System.out.println("Second Largest: " + secondLargest);
+    }
+}
+
+
+
+3.third largest
+
+class Solution {
+    int thirdLargest(List<Integer> arr) {
+
+        int first = Integer.MIN_VALUE;
+        int second = Integer.MIN_VALUE;
+        int third = Integer.MIN_VALUE;
+
+        if (arr.size() < 3) {
+            return -1;
+        }
+
+        for (int num : arr) {
+
+            if (num > first) {
+                third = second;
+                second = first;
+                first = num;
+            }
+            else if (num > second && num != first) {
+                third = second;
+                second = num;
+            }
+            else if (num > third && num != first && num != second) {
+                third = num;
+            }
+        }
+
+        return third;
+    }
+}
+
+
+4.Search an element in array
+
+
+import java.util.Scanner;
+class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter n");
+        int n=sc.nextInt();
+        
+        System.out.println("enter arr");
+        int arr[]=new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        
+         System.out.println("key:");
+       int key=sc.nextInt();
+       for(int i=0;i<n;i++){
+            if(arr[i]==key){
+                 System.out.println("ans");
+       
+            System.out.println(i);
+            }
+        }
+       
+    }
+}
+
+
+
+
+5.
