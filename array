@@ -288,3 +288,103 @@ public class Solution {
         return result;
     }
 }
+
+
+
+map concept
+------------
+
+map.put(key, value);      // insert
+
+map.get(key);             // get value
+
+map.containsKey(key);     // key present?
+
+map.remove(key);          // delete
+
+map.size();               // number of pairs
+
+
+
+10.subset array
+
+
+import java.util.HashMap;
+
+class Solution {
+    public boolean isSubset(int a[], int b[]) {
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        for (int num : a) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+
+        for (int num : b) {
+
+            if (!map.containsKey(num) || map.get(num) == 0) {
+                return false;
+            }
+
+            map.put(num, map.get(num) - 1);
+        }
+
+        return true;
+    }
+}
+
+
+11.Frequencies in a Limited Array
+
+Input: arr[] = [2, 3, 2, 3, 5]
+Output: [0, 2, 2, 0, 1]
+
+import java.util.*;
+
+class Solution {
+    public List<Integer> frequencyCount(int[] arr) {
+
+        int n = arr.length;
+
+        List<Integer> freq = new ArrayList<>();
+
+        for (int i = 0; i < n; i++) {
+            freq.add(0);
+        }
+
+        for (int num : arr) {
+            freq.set(num - 1, freq.get(num - 1) + 1);
+        }
+
+        return freq;
+    }
+}
+
+
+12.Two Sum - Pair with Given Sum
+
+Input: arr[] = [0, -1, 2, -3, 1], target = -2
+Output: true
+
+import java.util.HashSet;
+
+class Solution {
+
+    boolean twoSum(int arr[], int target) {
+
+        HashSet<Integer> set = new HashSet<>();
+
+        for (int num : arr) {
+
+            int required = target - num;
+
+            if (set.contains(required)) {
+                return true;
+            }
+
+            set.add(num);
+        }
+
+        return false;
+    }
+}
