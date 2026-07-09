@@ -1,0 +1,86 @@
+1.Find Character Frequencies in Order of Occurrence
+
+Input: s = "geeksforgeeks"
+Output: g2 e4 k2 s2 f1 o1 r1
+
+Input: str = "elephant"
+Output: e2 l1 p1 h1 a1 n1 t1
+
+
+import java.util.*;
+class Gfg {
+    public static void modifyString(String s)
+    {
+
+        Map<Character, Integer> d
+            = new HashMap<Character, Integer>();
+                    
+        for (int i = 0; i < s.length(); i++) {
+            if (d.containsKey(s.charAt(i))) {
+                d.put(s.charAt(i), d.get(s.charAt(i)) + 1);
+            }
+            else {
+                d.put(s.charAt(i), 1);
+            }
+        }
+
+      
+        for (int i = 0; i < s.length(); i++) {
+
+
+            if (d.get(s.charAt(i)) != 0) {
+                System.out.print(s.charAt(i));
+                System.out.print(d.get(s.charAt(i)) + " ");
+                d.put(s.charAt(i), 0);
+            }
+        }
+    }
+
+    // Driver code
+    public static void main(String[] args)
+    {
+        String S = "geeksforgeeks";
+        modifyString(S);
+    }
+}
+
+
+2.Count Group Occurrences
+
+Input: s = "abc", k = 1
+Output: 3
+
+import java.util.HashMap;
+
+class Solution {
+
+    int countGroupOccurrences(String s, int k) {
+
+        HashMap<Character, Integer> map = new HashMap<>();
+
+        for (int i = 0; i < s.length(); i++) {
+
+            // Count only the start of a new group
+            if (i == 0 || s.charAt(i) != s.charAt(i - 1)) {
+
+                char ch = s.charAt(i);
+
+                map.put(ch, map.getOrDefault(ch, 0) + 1);
+            }
+        }
+
+        int count = 0;
+
+        for (int value : map.values()) {
+
+            if (value == k) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+}
+
+
+
