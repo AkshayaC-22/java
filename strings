@@ -80,6 +80,119 @@ class Solution {
 
         return count;
     }
+
+
+3. Valid Anagram
+
+Example 1:
+
+Input: s = "anagram", t = "nagaram"
+
+Output: true
+
+Example 2:
+
+Input: s = "rat", t = "car"
+
+Output: false
+
+
+import java.util.HashMap;
+
+class Solution {
+
+    public boolean isAnagram(String s, String t) {
+
+        if (s.length() != t.length()) {
+            return false;
+        }
+
+        HashMap<Character, Integer> map = new HashMap<>();
+
+        // Count frequency of s
+        for (char ch : s.toCharArray()) {
+
+            map.put(ch, map.getOrDefault(ch, 0) + 1);
+        }
+
+        // Reduce frequency using t
+        for (char ch : t.toCharArray()) {
+
+            if (!map.containsKey(ch) || map.get(ch) == 0) {
+                return false;
+            }
+
+            map.put(ch, map.get(ch) - 1);
+        }
+
+        return true;
+    }
+}
+
+
+4.Palindrome String
+
+
+class Solution {
+
+    boolean isPalindrome(String s) {
+
+        int left = 0;
+        int right = s.length() - 1;
+
+        while (left < right) {
+
+            if (s.charAt(left) != s.charAt(right)) {
+                return false;
+            }
+
+            left++;
+            right--;
+        }
+
+        return true;
+    }
+}
+
+
+
+5.Reverse String
+
+Input: s = ["h","e","l","l","o"]
+Output: ["o","l","l","e","h"]
+
+class Solution {
+
+    public void reverseString(char[] s) {
+
+        int left = 0;
+        int right = s.length - 1;
+
+        while (left < right) {
+
+            char temp = s[left];
+            s[left] = s[right];
+            s[right] = temp;
+
+            left++;
+            right--;
+        }
+    }
+}
+
+
+6.Substring
+
+Input: s = "geeksforgeeks", l = 0 , r = 4
+Output: "geeks" 
+
+class Solution {
+
+    String substring(String s, int l, int r) {
+
+        return s.substring(l, r + 1);
+
+    }
 }
 
 
